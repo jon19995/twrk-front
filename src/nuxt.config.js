@@ -1,48 +1,35 @@
-export default
-{
-    components: true,
+export default {
+	mode: "universal",
 
-    buildModules:
-    [
-        "@nuxtjs/eslint-module",
-        "@nuxtjs/tailwindcss"
-    ],
+	components: true,
 
-    eslint:
-    {
-        fix: true
-    },
+	buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/tailwindcss"],
 
-    axios:
-    {
-        proxy: true
-    },
+	eslint: {
+		fix: true,
+	},
 
-    head:
-    {
-        title    : "Тестовая работа Nuxt/Vue",
-        htmlAttrs:
-        {
-            lang: "ru"
-        },
-        meta:
-        [
-            { charset: "utf-8" },
-            { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" },
-            { hid: "description", name: "description", content: "" },
-            { name: "format-detection", content: "telephone=no" }
-        ]
-    },
+	axios: {
+		proxy: true,
+	},
 
-    modules:
-    [
-        "@nuxtjs/proxy",
-        "@nuxtjs/axios",
-        "@nuxtjs/router-extras"
-    ],
+	head: {
+		title: "Тестовая работа Nuxt/Vue",
+		htmlAttrs: {
+			lang: "ru",
+		},
+		meta: [
+			{ charset: "utf-8" },
+			{
+				name: "viewport",
+				content: "width=device-width, initial-scale=1, maximum-scale=1",
+			},
+			{ hid: "description", name: "description", content: "" },
+			{ name: "format-detection", content: "telephone=no" },
+		],
+	},
 
-    css:
-    [
-        "@/assets/css/tailwind.css"
-    ]
-}
+	modules: ["@nuxtjs/proxy", "@nuxtjs/axios", "@nuxtjs/router-extras"],
+
+	css: ["@/assets/css/tailwind.css"],
+};

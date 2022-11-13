@@ -1,58 +1,30 @@
 <template>
-    <div :class="$style.Example">
-        <div
-            class="flex container flex-col"
-        >
-            <h1
-                class="text-[36px] text-[#16bd71] font-bold mb-4 border-b border-[#ababa8]"
-            >
-                {{ h1 }}
-            </h1>
-            <NuxtChild />
-            <NuxtLink
-                v-if="!isRoot"
-                :to="rootPath"
-                class="text-[18px] text-[#16bd71] hover:text-[#0f4d30] underline mt-6 border-t border-[#ababa8] pt-1 pb-8"
-            >
-                Return to home page
-            </NuxtLink>
-        </div>
-    </div>
+	<div class="container">
+		<main>
+			<h1 class="text-primary text-20 my-5 md:text-26 xl:my-8 2xl:text-34 2xl:my-9">
+				Валютный калькулятор
+			</h1>
+
+			<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 xl:gap-10">
+				<TheForm />
+				<TheAside />
+			</div>
+		</main>
+
+		<TheFooter />
+	</div>
 </template>
 
 <script>
+import TheAside from '../components/TheAside.vue';
+import TheForm from '../components/TheForm.vue'
+import TheFooter from '../components/footers/TheFooter.vue'
+
 export default {
-    data()
-    {
-        return {
-            rootPath: this.$route.matched[ 0 ].path
-        }
-    },
-
-    computed:
-    {
-        isRoot()
-        {
-            return this.rootPath === this.$route.path
-        },
-
-        title()
-        {
-            return this.$route.name.replace( /^.*?-/, "" )
-        },
-
-        h1()
-        {
-            return this.isRoot ? "Elements:" : `The ${ this.title } element.`
-        }
-    }
+	components: {
+		TheForm,
+		TheAside,
+		TheFooter,
+	},
 }
 </script>
-
-<style lang="scss" module>
-
-.Example {
-    //
-}
-
-</style>
